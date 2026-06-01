@@ -4,37 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Variedades</title>
+    <style>
+        header { 
+            background-color: #183C63; 
+            color: #FFFFFF; 
+            text-align: center; 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 16px; 
+        }
+        main { 
+            background-color: #FFFFFF; 
+            color: #182963; 
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        article { 
+            display: flex; 
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+        img { 
+            width: 80px; 
+            height: 80px; 
+        }
+        .artigo-autor { 
+            font-weight: bold; 
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Giro de Notícias</h1>
+        <h1>Notícias</h1>
         <p>Acompanhe os fatos marcantes do esporte e os mistérios mais curiosos da internet.</p>
-        <style>
-            header {
-                background-color: #183C63;
-                color: #FFFFFF;
-                text-align: center;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 16px;
-            }
-            main {
-                background-color: #FFFFFF;
-                color: #182963;
-            }
-            article {
-                display: flex;
-                margin-bottom: 20px;
-            }
-            img {
-                width: 80px;
-                height: 80px;
-            }
-            .artigo-autor {
-                font-weight: bold;
-            }
-        </style>
     </header>
+
     <main>
         <!-- Primeiro Post: Resultado da Copa do Mundo -->
         <article>
@@ -43,8 +48,10 @@
                 <h2>O Grande Campeão da Copa do Mundo!</h2>
                 <p class="artigo-autor">Por: Marcelo Paludetto</p>
                 <p>Em uma final histórica e emocionante decidida nos detalhes, a seleção consagrou-se campeã do mundo após derrotar seu adversário em uma partida eletrizante que entrou para a história do futebol internacional.</p>
-                <button>❤️<span>0</span></button>
-                <button>👍<span>0</span></button>
+                
+                <!-- Botões com classes e chamadas de função -->
+                <button onclick="curtir('count-coracao-1')">❤️<span id="count-coracao-1">0</span></button>
+                <button onclick="curtir('count-like-1')">👍<span id="count-like-1">0</span></button>
             </div>
         </article>
 
@@ -55,10 +62,21 @@
                 <h2>Como Identificar Notícias Falsas na Internet</h2>
                 <p class="artigo-autor">Por: Redação Blog</p>
                 <p>Verifique sempre a fonte do conteúdo antes de compartilhar informações nas redes sociais para evitar a propagação de boatos.</p>
-                <button>❤️<span>0</span></button>
-                <button>👍<span>0</span></button>
+                
+                <!-- Botões com classes e chamadas de função -->
+                <button onclick="curtir('count-coracao-2')">❤️<span id="count-coracao-2">0</span></button>
+                <button onclick="curtir('count-like-2')">👍<span id="count-like-2">0</span></button>
             </div>
         </article>
     </main>
+
+    <script>
+        // Função que altera o número sempre que um botão é clicado
+        function curtir(idElemento) {
+            let elemento = document.getElementById(idElemento);
+            let valorAtual = parseInt(elemento.innerText);
+            elemento.innerText = valorAtual + 1;
+        }
+    </script>
 </body>
 </html>
